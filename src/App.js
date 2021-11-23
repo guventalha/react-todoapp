@@ -17,6 +17,10 @@ function App() {
       setTodo('');
     }
   };
+
+  const deleteTodo = () => {
+    todos.filter((todo) => !todo.includes(todo));
+  };
   return (
     <div className='App'>
       <div className='entry'>
@@ -30,6 +34,16 @@ function App() {
         <button className='add-btn' onClick={clickHandler}>
           Add Todo
         </button>
+      </div>
+      <div className='todos'>
+        {todos.map((todo) => {
+          return (
+            <div key='2' className='todo-item'>
+              {todo}
+              <button onClick={deleteTodo}>Delete</button>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
